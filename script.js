@@ -1,4 +1,4 @@
-// ========= script.js =========
+// ========= script.js (redirect-only) =========
 
 // Usamos la config global definida en index.html
 const firebaseConfig = window.firebaseConfig;
@@ -6,8 +6,7 @@ const firebaseConfig = window.firebaseConfig;
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
   getAuth, onAuthStateChanged, signInAnonymously, signOut,
-  GoogleAuthProvider, signInWithPopup, signInWithRedirect,
-  linkWithPopup, linkWithRedirect
+  GoogleAuthProvider, signInWithRedirect, linkWithRedirect
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import {
   getFirestore, collection, addDoc, onSnapshot, query, where,
@@ -63,16 +62,15 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-// ---- Login con Google ----
+// ---- Login con Google (FORZAR REDIRECT SIEMPRE) ----
 googleBtn?.addEventListener("click", async () => {
   const user = auth.currentUser;
   try {
     if (user && user.isAnonymous) {
-      if (isMobile()) await linkWithRedirect(user, provider);
-      else            await linkWithPopup(user, provider);
+      // Mantiene tus notas: enlaza la sesión anónima con Google
+      await linkWithRedirect(user, provider);
     } else {
-      if (isMobile()) await signInWithRedirect(auth, provider);
-      else            await signInWithPopup(auth, provider);
+      await signInWithRedirect(auth, provider);
     }
   } catch (err) {
     console.error(err);
@@ -152,7 +150,4 @@ function escapeHTML(s) {
   return String(s).replace(/[&<>"']/g, c => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   }[c]));
-}
-function isMobile() {
-  return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 }

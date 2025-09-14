@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agenda Post-its (Sync + Google)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>📝 OPOSICIÓN SERGIO — Agenda Post-its</h1>
+
+  <!-- Estado de sesión -->
+  <div id="authBox" class="auth">
+    <span id="userInfo">Conectando...</span>
+    <button id="googleBtn">Entrar con Google</button>
+    <button id="logoutBtn" style="display:none">Cerrar sesión</button>
+  </div>
+
+  <!-- Formulario -->
+  <form id="form">
+    <input type="date" id="fecha" required />
+    <input type="text" id="titulo" placeholder="Título del día" required />
+    <textarea id="notas" placeholder="Escribe tus notas aquí..."></textarea>
+    <button type="submit">➕ Añadir post-it</button>
+  </form>
+
+  <!-- Muro de post-its -->
+  <div id="muro"></div>
+
+  <!-- Config de Firebase: RELLENA con tu proyecto -->
+  <script type="module">
+    export const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "agenda-postits.firebaseapp.com",
+      projectId: "agenda-postits",
+      storageBucket: "agenda-postits.appspot.com",
+      messagingSenderId: "XXXXXXXXXXXX",
+      appId: "1:XXXXXXXXXXXX:web:XXXXXXXXXXXX"
+    };
+  </script>
+
+  <!-- Lógica de la app -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

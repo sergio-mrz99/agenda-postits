@@ -1,0 +1,115 @@
+:root { color-scheme: dark; }
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 20px;
+  font-family: system-ui, Arial, sans-serif;
+  background: #121212;
+  color: #eaeaea;
+  text-align: center;
+}
+
+h1 { margin-bottom: 16px; }
+
+.auth {
+  margin: 0 auto 16px;
+  max-width: 800px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+#userInfo {
+  padding: 6px 10px;
+  background: #1e1e1e;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+#logoutBtn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: #444;
+  color: #fff;
+  cursor: pointer;
+}
+#logoutBtn:hover { background: #666; }
+
+form {
+  margin: 0 auto 18px;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+input, textarea, button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  background: #1b1b1b;
+  color: #fff;
+  font-size: 14px;
+}
+
+#fecha { grid-column: span 2; }
+#titulo { grid-column: span 4; }
+#notas  { grid-column: span 6; min-height: 80px; resize: vertical; }
+form button { grid-column: span 6; background: #0a84ff; border: none; cursor: pointer; }
+form button:hover { background: #0066cc; }
+
+#muro {
+  margin: 0 auto;
+  max-width: 1100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.postit {
+  position: relative;
+  background: #000;     /* Negro */
+  color: #fff;          /* Texto blanco */
+  border-radius: 12px;
+  padding: 14px 14px 12px 14px;
+  box-shadow: 0 4px 14px rgba(255,255,255,0.12);
+  text-align: left;
+  word-wrap: break-word;
+  min-height: 150px;
+}
+
+.postit h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  line-height: 1.2;
+  outline: none;
+}
+
+.postit p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  white-space: pre-wrap;
+  outline: none;
+}
+
+.postit small {
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.postit .del {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  border-radius: 6px;
+  background: crimson;
+  color: #fff;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+.postit .del:hover { background: #b3122d; }

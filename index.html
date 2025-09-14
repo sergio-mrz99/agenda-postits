@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Agenda Post-its (Sync + Google)</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <h1>📝 OPOSICIÓN SERGIO — Agenda Post-its</h1>
@@ -26,9 +26,9 @@
   <!-- Muro de post-its -->
   <div id="muro"></div>
 
-  <!-- Config de Firebase: RELLENA con tu proyecto -->
-  <script type="module">
-    export const firebaseConfig = {
+  <!-- Config de Firebase: Pega aquí tu configuración real -->
+  <script>
+    window.firebaseConfig = {
       apiKey: "TU_API_KEY",
       authDomain: "agenda-postits.firebaseapp.com",
       projectId: "agenda-postits",
@@ -39,6 +39,6 @@
   </script>
 
   <!-- Lógica de la app -->
-  <script type="module" src="script.js"></script>
+  <script type="module" src="./script.js"></script>
 </body>
 </html>

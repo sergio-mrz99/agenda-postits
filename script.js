@@ -1,5 +1,7 @@
 // ========= script.js =========
-import { firebaseConfig } from "./index.html";
+
+// Usamos la config global definida en index.html
+const firebaseConfig = window.firebaseConfig;
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
@@ -62,12 +64,10 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 // ---- Login con Google ----
-// Si estás anónimo y pulsas Google, intentamos "linkear" para conservar tus notas.
 googleBtn?.addEventListener("click", async () => {
   const user = auth.currentUser;
   try {
     if (user && user.isAnonymous) {
-      // Desktop → popup; móvil → redirect (más estable)
       if (isMobile()) await linkWithRedirect(user, provider);
       else            await linkWithPopup(user, provider);
     } else {
